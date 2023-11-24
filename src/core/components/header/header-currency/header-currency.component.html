@@ -1,0 +1,25 @@
+<section class="flex flex-col gap-2 w-56">
+  <div
+    class="flex items-center bg-gray-700 dark:border-gray-600 border rounded"
+  >
+    <app-icon
+      name="{{ options[currency].flag }}"
+      [style]="'h-8 w-16'"
+    ></app-icon>
+    <select
+      class="outline-none cursor-pointer p-3 bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+      [ngModel]="currency"
+      (ngModelChange)="change($event)"
+    >
+      <option *ngFor="let option of options" [value]="option.currency">
+        {{ option.text }}
+      </option>
+    </select>
+  </div>
+
+  <input
+    class="w-full outline-none border rounded px-3 py-2 hover:bg-gray-400 focus:bg-gray-400 transition-all"
+    type="text"
+    appCurrencyInput
+  />
+</section>
